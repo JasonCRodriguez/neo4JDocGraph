@@ -10,6 +10,8 @@ Database
 * Organizations -[:PARENT_OF] - Providers -[:SPECIALTY]- Specialties
 * Providers -[:LOCATED_IN]-Locations
 * Providers -[:REFERRED]-Providers
+* Counties -[:INCOME_IN]-
+* 
 
 Nodes:
 --------
@@ -17,7 +19,10 @@ Nodes:
 * Organizations - Fields: name
 * Specialties - Fields: name, code
 * Providers - Fields: name, npi, type, address_first_line, address_second_line, address_city_name, address_state_name, address_postal_code, address_country_code, telephone_number, fax_number
-* Locations - address_city_name, address_state_name, address_country_code
+* Locations - Fields: address_city_name, address_state_name, address_country_name
+* CountiesZip - Fields: postal_code, primary_city, state, county, state_county
+* Census - Fields: display_label, county, average_income, error, state_county
+
 
 Edges:
 --------
@@ -26,6 +31,8 @@ Edges:
 * SPECIALTY - Between Providers and Specialties
 * LOCATED_IN - Between Providers and Locations
 * REFERRED - Between Providers, Fields: times
+* LOCATED_IN - Between Counties and PostalCode
+* 
 
 
 Indexes:
